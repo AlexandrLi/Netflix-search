@@ -1,0 +1,21 @@
+.container {
+  background-color: #F5F5F5;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.container div {
+  margin-left: 100px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-right: 100px;
+}
+
+.row div {
+  margin: 0 10px;
+}

@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+}
+
+img {
+  width: 200px
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.row h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.year {
+  border: 1px solid black;
+  padding: 2px;
+}
+
+p {
+  font-size: 10px;
+}
