@@ -136,15 +136,15 @@ export class SearchPage extends React.Component {
           </div>
         </header>
         <div className={s.toolbar}>
-          {this.state.movies.length > 0 ? <Toolbar count={this.state.movies.length} sortBy={this.state.sortBy} onSortClick={this.toggleSortingOrder.bind(this)} /> : null}
+          {!!this.state.movies.length && <Toolbar count={this.state.movies.length} sortBy={this.state.sortBy} onSortClick={this.toggleSortingOrder.bind(this)} />}
         </div>
-        <div className={s.container}>
-          {this.state.movies.map(item => <FilmCard key={item.show_id} movie={item} />)}
-        </div>
-        {this.state.movies.length === 0 ?
+        {this.state.movies.length ?
+          <div className={s.container}>
+            {this.state.movies.map(item => <FilmCard key={item.show_id} movie={item} />)}
+          </div> :
           <div className={s.noContent}>
             <p>No films found</p>
-          </div> : null}
+          </div>}
       </div >
     )
   }

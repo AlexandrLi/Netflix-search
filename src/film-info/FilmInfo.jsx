@@ -108,6 +108,20 @@ export class FilmInfo extends React.Component {
           "runtime": "N/A"
         }
       ],
+      selectedMovie: {
+        "unit": 84,
+        "show_id": 60032563,
+        "show_title": "Kill Bill: Vol. 2",
+        "release_year": "2004",
+        "rating": "3.8",
+        "category": "Action & Adventure",
+        "show_cast": "Uma Thurman, David Carradine, Michael Madsen, Daryl Hannah, Gordon Liu, Michael Parks, Perla Haney-Jardine, Helen Kim, Claire Smithies, Clark Middleton",
+        "director": "Quentin Tarantino",
+        "summary": "The Bride has three left on her rampage list: Budd, Elle Driver and Bill himself. But when she arrives at Bill's house, she's in for a surprise.",
+        "poster": "http://netflixroulette.net/api/posters/60032563.jpg",
+        "mediatype": 0,
+        "runtime": "137 min"
+      }
     }
   }
 
@@ -120,22 +134,22 @@ export class FilmInfo extends React.Component {
             <div className={s.button}>search</div>
           </div>
           <div className={s.info}>
-            <img src={this.state.movies[0]['poster']} alt="no image" />
+            <img src={this.state.selectedMovie.poster} alt="no image" />
             <div className={s.description}>
-              <h2>{this.state.movies[0]['show_title']}</h2>
-              <p>{this.state.movies[0]['category']}</p>
-              <p>{this.state.movies[0]['release_year']}<span>{this.state.movies[0]['runtime']}</span></p>
-              <p>{this.state.movies[0]['summary']}</p>
-              <p>Director: {this.state.movies[0]['director']}</p>
-              <p>Cast: {this.state.movies[0]['show_cast']}</p>
+              <h2>{this.state.selectedMovie.show_title}</h2>
+              <p>{this.state.selectedMovie.category}</p>
+              <p>{this.state.selectedMovie.release_year}<span>{this.state.selectedMovie.runtime}</span></p>
+              <p>{this.state.selectedMovie.summary}</p>
+              <p>Director: {this.state.selectedMovie.director}</p>
+              <p>Cast: {this.state.selectedMovie.show_cast}</p>
             </div>
           </div>
         </div>
         <div className={s.toolbar}>
-          <p>Films by {this.state.movies[0]['director']}</p>
+          <p>Films by {this.state.selectedMovie.director}</p>
         </div>
         <div className={s.container}>
-          {this.state.movies.map(item => <FilmCard key={item.show_id} movie={item} />)}
+          {this.state.movies.filter(movie => movie.show_id !== this.state.selectedMovie.show_id).map(item => <FilmCard key={item.show_id} movie={item} />)}
         </div>
       </div >
     )
