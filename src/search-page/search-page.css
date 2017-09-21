@@ -58,11 +58,12 @@ input {
 }
 
 .button {
+  cursor: pointer;
   margin-left: 20px;
   min-width: 60px;
   padding: 10px;
   text-align: center;
-  background-color: #F55263;
+  background-color: #3C3C3C;
   border-radius: 2px;
   text-transform: uppercase;
 }
@@ -73,8 +74,13 @@ input {
 }
 
 .button.search-button {
+  background-color: #F55263;
   margin-left: auto;
   width: 180px;
+}
+
+.selected {
+  background-color: #F55263;
 }
 
 .container {
@@ -86,4 +92,21 @@ input {
 .container:after {
   content: "";
   flex: auto;
+}
+
+.no-content {
+  display: flex;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-content p {
+  color: #C8C8C8;
+  font-size: 70px;
+}
+
+.toolbar {
+  background-color: #F5F5F5;
+  padding: 20px 0;
 }

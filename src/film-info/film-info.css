@@ -1,8 +1,5 @@
 .header {
-  /* display: flex;
-  flex-direction: column; */
-  padding: 0 100px;
-  height: 380px;
+  padding: 0 100px 50px 100px;
   color: white;
   position: relative;
   background: rgba(0, 0, 0, 0.75);
@@ -33,7 +30,7 @@ h1 {
 
 h2 {
   color: #F55263;
-  font-size: 32px;
+  font-size: 42px;
 }
 
 .container {
@@ -65,8 +62,8 @@ h2 {
 }
 
 .description p {
-  margin: 10px 0;
-  font-size: 14px;
+  margin: 25px 0;
+  font-size: 18px;
 }
 
 .description span {
@@ -74,6 +71,7 @@ h2 {
 }
 
 .button {
+  cursor: pointer;
   margin-left: 20px;
   min-width: 50px;
   padding: 5px 10px;
@@ -82,4 +80,14 @@ h2 {
   background-color: white;
   border-radius: 2px;
   text-transform: uppercase;
+}
+
+.toolbar {
+  background-color: #F5F5F5;
+  padding: 20px 0;
+}
+
+.toolbar p {
+  margin-left: 100px;
+  font-size: inherit;
 }

@@ -4,10 +4,6 @@
   padding: 30px 20px;
 }
 
-img {
-  width: 200px
-}
-
 .row {
   display: flex;
   justify-content: space-between;

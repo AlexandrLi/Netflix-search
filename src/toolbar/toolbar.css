@@ -1,8 +1,6 @@
 .container {
-  background-color: #F5F5F5;
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
 }
 
 .container div {
@@ -17,5 +15,10 @@
 }
 
 .row div {
+  cursor: pointer;
   margin: 0 10px;
+}
+
+.selected {
+  color: #F55263;
 }
