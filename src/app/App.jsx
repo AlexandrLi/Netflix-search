@@ -8,7 +8,7 @@ export class App extends React.Component {
   render() {
     return (
       <div>
-        <SearchPage />
+        {this.props.children}
         <footer>
           netflixroulette
         </footer>

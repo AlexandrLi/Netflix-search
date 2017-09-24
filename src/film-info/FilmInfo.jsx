@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import * as s from './film-info.css';
 import { FilmCard } from '../film-card/FilmCard';
 import { Toolbar } from '../toolbar/toolbar'
@@ -108,21 +109,13 @@ export class FilmInfo extends React.Component {
           "runtime": "N/A"
         }
       ],
-      selectedMovie: {
-        "unit": 84,
-        "show_id": 60032563,
-        "show_title": "Kill Bill: Vol. 2",
-        "release_year": "2004",
-        "rating": "3.8",
-        "category": "Action & Adventure",
-        "show_cast": "Uma Thurman, David Carradine, Michael Madsen, Daryl Hannah, Gordon Liu, Michael Parks, Perla Haney-Jardine, Helen Kim, Claire Smithies, Clark Middleton",
-        "director": "Quentin Tarantino",
-        "summary": "The Bride has three left on her rampage list: Budd, Elle Driver and Bill himself. But when she arrives at Bill's house, she's in for a surprise.",
-        "poster": "http://netflixroulette.net/api/posters/60032563.jpg",
-        "mediatype": 0,
-        "runtime": "137 min"
-      }
+      selectedMovie: {}
     }
+  }
+
+  componentWillMount() {
+    let movie = this.state.movies.find(movie => movie.show_title === this.props.match.params.show_title)
+    this.setState({ selectedMovie: movie })
   }
 
   render() {
@@ -131,7 +124,7 @@ export class FilmInfo extends React.Component {
         <div className={s.header}>
           <div className={s.row}>
             <h1>netflixroulette</h1>
-            <div className={s.button}>search</div>
+            <div className={s.button}><Link to="/">search</Link></div>
           </div>
           <div className={s.info}>
             <img src={this.state.selectedMovie.poster} alt="no image" />
@@ -149,7 +142,7 @@ export class FilmInfo extends React.Component {
           <p>Films by {this.state.selectedMovie.director}</p>
         </div>
         <div className={s.container}>
-          {this.state.movies.filter(movie => movie.show_id !== this.state.selectedMovie.show_id).map(item => <FilmCard key={item.show_id} movie={item} />)}
+          {this.state.movies.filter(movie => movie.show_id !== this.state.selectedMovie.show_id).map(item => <Link to={`/film/${item.show_title}`} key={item.show_id}><FilmCard key={item.show_id} movie={item} /></Link>)}
         </div>
       </div >
     )
