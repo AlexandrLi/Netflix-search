@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import * as s from './film-info.css';
 import { FilmCard } from '../film-card/FilmCard';
-import { Toolbar } from '../toolbar/toolbar'
 
 export class FilmInfo extends React.Component {
 
@@ -114,7 +113,11 @@ export class FilmInfo extends React.Component {
   }
 
   componentWillMount() {
-    let movie = this.state.movies.find(movie => movie.show_title === this.props.match.params.show_title)
+    this.componentWillReceiveProps(this.props)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let movie = this.state.movies.find(movie => movie.show_title === nextProps.match.params.show_title)
     this.setState({ selectedMovie: movie })
   }
 
@@ -142,7 +145,7 @@ export class FilmInfo extends React.Component {
           <p>Films by {this.state.selectedMovie.director}</p>
         </div>
         <div className={s.container}>
-          {this.state.movies.filter(movie => movie.show_id !== this.state.selectedMovie.show_id).map(item => <Link to={`/film/${item.show_title}`} key={item.show_id}><FilmCard key={item.show_id} movie={item} /></Link>)}
+          {this.state.movies.filter(movie => movie.show_id !== this.state.selectedMovie.show_id).map(item => <Link to={`/film/${item.show_title}`} key={item.show_id} ><FilmCard key={item.show_id} movie={item} /></Link>)}
         </div>
       </div >
     )

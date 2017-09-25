@@ -42,13 +42,15 @@ h1 {
   font-size: 14px;
 }
 
-header label {
+form label {
   text-transform: uppercase;
   margin-top: 50px;
   font-size: 18px;
 }
 
-input {
+form input {
+  display: block;
+  width: 97%;
   border-bottom: 1px solid #F55263;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 15px;
@@ -74,6 +76,8 @@ input {
 }
 
 .button.search-button {
+  color: white;
+  font-size: 18px;
   background-color: #F55263;
   margin-left: auto;
   width: 180px;

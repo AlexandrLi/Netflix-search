@@ -137,7 +137,8 @@ body {
   margin: auto;
 }
 
-input {
+input,
+button {
   border: none;
 }
 
