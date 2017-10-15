@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import { FilmCard } from '../film-card/FilmCard'
 import { Toolbar } from '../toolbar/toolbar'
 import * as s from './search-page.css';
 
 export class SearchPage extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       movies: [],
       searchBy: 'title',
