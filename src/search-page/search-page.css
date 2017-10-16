@@ -93,11 +93,6 @@ form input {
   justify-content: space-between;
 }
 
-.container:after {
-  content: "";
-  flex: auto;
-}
-
 .no-content {
   display: flex;
   height: 500px;

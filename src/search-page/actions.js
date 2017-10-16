@@ -3,11 +3,18 @@ const ROOT_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
 
 export const FETCH_MOVIES = 'FETCH_MOVIES';
 
-export function fetchMovies(query) {
-  const url = `${ROOT_URL}&query=${query}`;
-  let request = fetch(url).then(response => response.json());
+export function fetchMoviesSuccess(movies) {
   return {
     type: FETCH_MOVIES,
-    payload: request
+    payload: movies
+  }
+}
+
+export function fetchMovies(query) {
+  return dispatch => {
+    const url = `${ROOT_URL}&query=${query}`;
+    let request = fetch(url)
+      .then(response => response.json())
+      .then(response => dispatch(fetchMoviesSuccess(response.results)));
   }
 }

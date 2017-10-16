@@ -1,7 +1,13 @@
 .card {
   display: flex;
   flex-direction: column;
-  padding: 30px 20px;
+  width: 250px;
+  padding: 20px 10px;
+}
+
+.card img {
+  min-height: 320px;
+  max-height: 320px;
 }
 
 .row {

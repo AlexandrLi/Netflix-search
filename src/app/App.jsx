@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchPage } from '../search-page/SearchPage'
+import SearchPage from '../search-page/SearchPage'
 import { FilmInfo } from '../film-info/FilmInfo'
 import * as s from './app.css';
 

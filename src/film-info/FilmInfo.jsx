@@ -5,8 +5,8 @@ import { FilmCard } from '../film-card/FilmCard';
 
 export class FilmInfo extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       movies: [
         {
