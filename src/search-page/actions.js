@@ -15,9 +15,23 @@ export function fetchMovies(query) {
   return (dispatch, getState) => {
     const { searchType } = getState();
     const url = `${ROOT_URL}/${searchType}?${API_KEY_PARAM}&query=${query}`;
-    let request = fetch(url)
+    fetch(url)
       .then(response => response.json())
-      .then(response => dispatch(fetchMoviesSuccess(response.results)));
+      .then(response => {
+        if (searchType === 'movie') {
+          dispatch(fetchMoviesSuccess(response.results.sort((m1, m2) => { return (new Date(m2.release_date).getTime() - new Date(m1.release_date).getTime()) })));
+        } else {
+          dispatch(fetchMoviesSuccess(response.results.map(movie => {
+            return {
+              id: movie.id,
+              title: movie.name,
+              release_date: movie.first_air_date,
+              poster_path: movie.poster_path,
+              vote_average: movie.vote_average
+            }
+          })));
+        }
+      });
   }
 }
 
