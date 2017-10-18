@@ -16,7 +16,7 @@ import MovieReducer from './film-info/reducer_movie';
 const rootReducer = combineReducers({
   movies: MoviesReducer,
   selectedMovie: MovieReducer,
-  searchBy: SearchReducer,
+  searchType: SearchReducer,
   sortBy: SortReducer
 })
 

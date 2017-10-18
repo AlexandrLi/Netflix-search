@@ -1,4 +1,4 @@
-export default function (state = 'TITLE', action) {
+export default function (state = 'movie', action) {
   console.log(action.payload);
   switch (action.type) {
     case 'CHANGE_SEARCH_TYPE':

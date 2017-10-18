@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchMovies } from './actions';
+import { fetchMovies, changeSearchType } from './actions';
 
 import { FilmCard } from '../film-card/FilmCard'
 import { Toolbar } from '../toolbar/toolbar'
@@ -13,8 +13,6 @@ class SearchPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // movies: [],
-      searchBy: 'title',
       sortBy: 'release',
       query: this.props.match.params.query || ''
     }
@@ -22,7 +20,7 @@ class SearchPage extends React.Component {
   }
 
   toggleSearchBy(type) {
-    this.setState({ searchBy: type })
+    this.props.changeSearchType(type);
   }
 
   handleChange(event) {
@@ -39,7 +37,6 @@ class SearchPage extends React.Component {
   }
 
   componentWillMount() {
-    // if (this.props.location.pathname === '/') this.setState({ movies: [] });
     if (this.state.query) {
       this.props.fetchMovies(this.state.query);
     }
@@ -66,9 +63,9 @@ class SearchPage extends React.Component {
             <label htmlFor="search">find your movie</label>
             <input id="search" type="text" value={this.state.query} onChange={this.handleChange} />
             <div className={s.row}>
-              <p>search by</p>
-              <div className={`${s.button} ${s.buttonSmall} ${this.state.searchBy === 'title' ? s.selected : ''}`} onClick={() => this.toggleSearchBy('title')}>title</div>
-              <div className={`${s.button} ${s.buttonSmall} ${this.state.searchBy === 'director' ? s.selected : ''}`} onClick={() => this.toggleSearchBy('director')}>director</div>
+              <p>search</p>
+              <div className={`${s.button} ${s.buttonSmall} ${this.props.searchType === 'movie' ? s.selected : ''}`} onClick={() => this.toggleSearchBy('movie')}>movie</div>
+              <div className={`${s.button} ${s.buttonSmall} ${this.props.searchType === 'tv' ? s.selected : ''}`} onClick={() => this.toggleSearchBy('tv')}>tv show</div>
               <button className={`${s.button} ${s.searchButton}`}>search</button>
             </div>
           </form>
@@ -89,11 +86,11 @@ class SearchPage extends React.Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMovies }, dispatch);
+  return bindActionCreators({ fetchMovies, changeSearchType }, dispatch);
 }
 
-function mapStateToProps({ movies }) {
-  return { movies };
+function mapStateToProps({ movies, searchType }) {
+  return { movies, searchType };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
