@@ -7,7 +7,7 @@
   "author": "Alexandr Li",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server -d"
   },
   "dependencies": {
     "react": "^15.6.1",

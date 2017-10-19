@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchMovies, changeSearchType } from './actions';
+import { fetchMovies, changeSearchType, sortMovies } from './actions';
 
 import { FilmCard } from '../film-card/FilmCard'
 import { Toolbar } from '../toolbar/toolbar'
@@ -13,7 +13,6 @@ class SearchPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortBy: 'release',
       query: this.props.match.params.query || ''
     }
     this.handleChange = this.handleChange.bind(this);
@@ -28,12 +27,7 @@ class SearchPage extends React.Component {
   }
 
   toggleSortingOrder(order) {
-    this.setState({ sortBy: order })
-    if (order === 'release') {
-      this.props.movies.sort((m1, m2) => m2.release_date - m1.release_date)
-    } else {
-      this.props.movies.sort((m1, m2) => m2.popularity - m1.popularity)
-    }
+    this.props.sortMovies(order);
   }
 
   componentWillMount() {
@@ -71,7 +65,7 @@ class SearchPage extends React.Component {
           </form>
         </header>
         <div className={s.toolbar}>
-          {!!this.props.movies.length && <Toolbar count={this.props.movies.length} sortBy={this.state.sortBy} onSortClick={this.toggleSortingOrder.bind(this)} />}
+          {!!this.props.movies.length && <Toolbar count={this.props.movies.length} sortBy={this.props.sortBy} onSortClick={this.toggleSortingOrder.bind(this)} />}
         </div>
         {this.props.movies.length ?
           <div className={s.container}>
@@ -86,11 +80,11 @@ class SearchPage extends React.Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMovies, changeSearchType }, dispatch);
+  return bindActionCreators({ fetchMovies, changeSearchType, sortMovies }, dispatch);
 }
 
-function mapStateToProps({ movies, searchType }) {
-  return { movies, searchType };
+function mapStateToProps({ movies, searchType, sortBy }) {
+  return { movies, searchType, sortBy };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
