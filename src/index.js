@@ -1,28 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import ReduxThunk from 'redux-thunk';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import RootReducer from './reducers'
 import * as s from './styles/style.css';
 import { App } from './app/App.jsx';
 import SearchPage from './search-page/SearchPage.jsx';
-import { FilmInfo } from './film-info/FilmInfo.jsx';
-import MoviesReducer from './search-page/reducer_movies';
-import SearchReducer from './search-page/reducer_search';
-import SortReducer from './search-page/reducer_sort';
-import MovieReducer from './film-info/reducer_movie';
+import FilmInfo from './film-info/FilmInfo.jsx';
 
-const rootReducer = combineReducers({
-  movies: MoviesReducer,
-  selectedMovie: MovieReducer,
-  searchType: SearchReducer,
-  sortBy: SortReducer
-})
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const appStore = createStore(rootReducer, composeEnhancers(applyMiddleware(ReduxThunk)));
+const appStore = createStore(RootReducer, composeEnhancers(applyMiddleware(ReduxThunk)));
 
 ReactDOM.render((
   <Provider store={appStore}>
@@ -31,7 +22,7 @@ ReactDOM.render((
         <Switch>
           <Route exact path="/" component={SearchPage} />
           <Route path="/search/:query" component={SearchPage} />
-          <Route path="/film/:show_title" component={FilmInfo} />
+          <Route path="/film/:id" component={FilmInfo} />
         </Switch>
       </App>
     </Router>
