@@ -1,6 +1,7 @@
 const API_KEY_PARAM = 'api_key=e2c6b28a24bafd10044b1fc5397cc4d2';
 const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie';
 const MOVIE_URL = 'https://api.themoviedb.org/3/movie';
+const COLLECTION_URL = 'https://api.themoviedb.org/3/collection';
 
 
 export const FETCH_MOVIES = 'FETCH_MOVIES';
@@ -43,7 +44,17 @@ export function fetchMovie(id) {
     const url = `${MOVIE_URL}/${id}?${API_KEY_PARAM}`;
     fetch(url)
       .then(response => response.json())
-      .then(response => dispatch(selectMovie(response)));
+      .then(response => {
+        dispatch(selectMovie(response));
+        if (response.belongs_to_collection) {
+          const id = response.belongs_to_collection.id;
+          fetch(`${COLLECTION_URL}/${id}?${API_KEY_PARAM}`)
+            .then(response => response.json())
+            .then(response => dispatch(setMovies(response.parts)));
+        } else {
+          dispatch(clearMovies());
+        }
+      });
   }
 }
 

@@ -12,10 +12,10 @@ class FilmInfo extends React.Component {
     this.props.fetchMovie(this.props.match.params.id);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   let movie = this.state.movies.find(movie => movie.show_title === nextProps.match.params.show_title)
-  //   this.setState({ selectedMovie: movie })
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id)
+      this.props.fetchMovie(nextProps.match.params.id);
+  }
 
   render() {
     if (!this.props.selectedMovie) {
@@ -33,20 +33,20 @@ class FilmInfo extends React.Component {
               <div className={s.description}>
                 <h2>{this.props.selectedMovie.title}</h2>
                 <p>{this.props.selectedMovie.genres.map(g => g.name).join(', ')}</p>
-                <p>{this.props.selectedMovie.release_date.slice(0, 4)}<span>{this.props.selectedMovie.runtime}</span></p>
+                <p>Release year: {this.props.selectedMovie.release_date.slice(0, 4)}<span>Runtime: {this.props.selectedMovie.runtime}</span></p>
+                <p><em>{this.props.selectedMovie.tagline}</em></p>
                 <p>{this.props.selectedMovie.overview}</p>
-                <p>Budget: {this.props.selectedMovie.budget}</p>
-                <p>Cast: {this.props.selectedMovie.show_cast}</p>
+                <p>Budget: {this.props.selectedMovie.budget}<span>Rating: {this.props.selectedMovie.vote_average}</span></p>
               </div>
             </div>
           </div>
           {!!this.props.selectedMovie.belongs_to_collection &&
             <div className={s.toolbar}>
-              <p>Belongs to: {this.props.selectedMovie.belongs_to_collection.name}</p>
+              <p>Collection: {this.props.selectedMovie.belongs_to_collection.name}</p>
             </div>
           }
           <div className={s.container}>
-            {/* {this.props.movies.filter(movie => movie.show_id !== this.state.selectedMovie.show_id).map(item => <Link to={`/film/${item.show_title}`} key={item.show_id} ><FilmCard key={item.show_id} movie={item} /></Link>)} */}
+            {this.props.movies.filter(movie => movie.id !== this.props.selectedMovie.id).map(item => <Link to={`/film/${item.id}`} key={item.id}><FilmCard key={item.id} movie={item} /></Link>)}
           </div>
         </div >
       )
