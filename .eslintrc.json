@@ -3,7 +3,8 @@
         "browser": true,
         "commonjs": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest/globals": true
     },
     "parserOptions": {
         "ecmaFeatures": {
@@ -11,6 +12,10 @@
         },
         "sourceType": "module"
     },
+    "plugins": [
+        "jest",
+        "react"
+    ],
     "rules": {
         "no-const-assign": "warn",
         "no-this-before-super": "warn",
@@ -19,6 +24,21 @@
         "no-unused-vars": "warn",
         "constructor-super": "warn",
         "valid-typeof": "warn",
-        "no-extra-semi": "error"
+        "no-extra-semi": "error",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/valid-expect": "error"
+    },
+    "extends": ["plugin:jest/recommended"],
+    "settings": {
+        "react": {
+            "createClass": "createReactClass", // Regex for Component Factory to use, default to "createReactClass"
+            "pragma": "React", // Pragma to use, default to "React"
+            "version": "16.0" // React version, default to the latest React stable release
+        },
+        "propWrapperFunctions": ["forbidExtraProps"] // The names of any functions used to wrap the propTypes object, such as `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
     }
 }

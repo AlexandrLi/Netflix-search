@@ -1,5 +1,5 @@
 import React from 'react';
-import * as s from './film-card.css';
+import s from './film-card.css';
 
 export class FilmCard extends React.Component {
 
