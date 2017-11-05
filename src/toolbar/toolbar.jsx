@@ -1,5 +1,5 @@
 import React from 'react';
-import * as s from './toolbar.css';
+import s from './toolbar.css';
 
 export class Toolbar extends React.Component {
 

@@ -6,9 +6,9 @@ import { fetchMovies, reOrder, sortMovies } from '../actions';
 
 import { FilmCard } from '../film-card/FilmCard'
 import { Toolbar } from '../toolbar/toolbar'
-import * as s from './search-page.css';
+import s from './search-page.css';
 
-class SearchPage extends React.Component {
+export class SearchPage extends React.Component {
 
   constructor(props) {
     super(props);

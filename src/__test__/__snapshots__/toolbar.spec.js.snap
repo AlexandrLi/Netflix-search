@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar snapshot Take toolbar snapshot 1`] = `
+<div
+  className="container"
+>
+  <div>
+    10
+     movies found
+  </div>
+  <div
+    className="row"
+  >
+    Sort By
+    <div
+      className="selected"
+      onClick={[Function]}
+    >
+      release date
+    </div>
+    <div
+      className=""
+      onClick={[Function]}
+    >
+      rating
+    </div>
+  </div>
+</div>
+`;

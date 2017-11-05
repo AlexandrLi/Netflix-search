@@ -50,6 +50,7 @@
       "<rootDir>/shim.js",
       "<rootDir>/enzyme-setup.js"
     ],
+    "collectCoverageFrom": ["**/src/**/*.{js,jsx}", "!**/node_modules/**", "!**/vendor/**", "!**/src/reducers/index.js","!**/src/index.js"],
     "moduleNameMapper": {
       "^.+\\.css$": "identity-obj-proxy"
     }

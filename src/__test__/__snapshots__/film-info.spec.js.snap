@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Film info snapshot Take film-info snapshot 1`] = `
+<div>
+  <div
+    className={undefined}
+  >
+    <div
+      className={undefined}
+    >
+      <h1>
+        netflixroulette
+      </h1>
+      <div
+        className={undefined}
+        onClick={undefined}
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          search
+        </a>
+      </div>
+    </div>
+    <div
+      className={undefined}
+    >
+      <img
+        alt="no image"
+        src="https://image.tmdb.org/t/p/w342/dCtFvscYcXQKTNvyyaQr2g2UacJ.jpg"
+      />
+      <div
+        className={undefined}
+      >
+        <h2>
+          Harry Potter and the Philosopher's Stone
+        </h2>
+        <p>
+          Adventure, Fantasy, Family
+        </p>
+        <p>
+          Release year: 
+          2001
+          <span>
+            Runtime: 
+            152
+          </span>
+        </p>
+        <p>
+          <em>
+            Let the Magic Begin.
+          </em>
+        </p>
+        <p>
+          Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard -- with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths -- and about the villain who's to blame.
+        </p>
+        <p>
+          Budget: 
+          125000000
+          <span>
+            Rating: 
+            7.5
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className={undefined}
+  >
+    <p>
+      Collection: 
+      Harry Potter Collection
+    </p>
+  </div>
+  <div
+    className={undefined}
+  >
+    <a
+      href="/film/122"
+      onClick={[Function]}
+    >
+      <div
+        className="card"
+      >
+        <img
+          alt="no image"
+          src="https://image.tmdb.org/t/p/w342/uexxR7Kw1qYbZk0RYaF9Rx5ykbj.jpg"
+        />
+        <div
+          className="row"
+        >
+          <h2>
+            The Lord of the Rings: The Return of the King
+          </h2>
+          <div>
+            <div
+              className="year"
+            >
+              2003
+            </div>
+          </div>
+        </div>
+        <p>
+          8.2
+        </p>
+      </div>
+    </a>
+    <a
+      href="/film/120"
+      onClick={[Function]}
+    >
+      <div
+        className="card"
+      >
+        <img
+          alt="no image"
+          src="https://image.tmdb.org/t/p/w342/bxVxZb5O9OxCO0oRUNdCnpy9NST.jpg"
+        />
+        <div
+          className="row"
+        >
+          <h2>
+            The Lord of the Rings: The Fellowship of the Ring
+          </h2>
+          <div>
+            <div
+              className="year"
+            >
+              2001
+            </div>
+          </div>
+        </div>
+        <p>
+          8.1
+        </p>
+      </div>
+    </a>
+    <a
+      href="/film/121"
+      onClick={[Function]}
+    >
+      <div
+        className="card"
+      >
+        <img
+          alt="no image"
+          src="https://image.tmdb.org/t/p/w342/wf3v0Pn09jnT5HSaYal7Ami3bdA.jpg"
+        />
+        <div
+          className="row"
+        >
+          <h2>
+            The Lord of the Rings: The Two Towers
+          </h2>
+          <div>
+            <div
+              className="year"
+            >
+              2002
+            </div>
+          </div>
+        </div>
+        <p>
+          8
+        </p>
+      </div>
+    </a>
+  </div>
+</div>
+`;

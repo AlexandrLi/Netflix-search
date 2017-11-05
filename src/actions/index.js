@@ -26,7 +26,7 @@ export function fetchMovies(query, order) {
   return (dispatch, getState) => {
     const { sortBy } = getState();
     const url = `${SEARCH_URL}?${API_KEY_PARAM}&query=${query}`;
-    fetch(url)
+    return fetch(url)
       .then(response => response.json())
       .then(response => dispatch(setMovies(sort(response.results, sortBy, order))));
   }
@@ -42,7 +42,7 @@ function selectMovie(movie) {
 export function fetchMovie(id) {
   return (dispatch) => {
     const url = `${MOVIE_URL}/${id}?${API_KEY_PARAM}`;
-    fetch(url)
+    return fetch(url)
       .then(response => response.json())
       .then(response => {
         dispatch(selectMovie(response));

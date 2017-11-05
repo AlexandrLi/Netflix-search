@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Film-card snapshot Take film-card snapshot 1`] = `
+<div
+  className="card"
+>
+  <img
+    alt="no image"
+    src="https://image.tmdb.org/t/p/w342/dCtFvscYcXQKTNvyyaQr2g2UacJ.jpg"
+  />
+  <div
+    className="row"
+  >
+    <h2>
+      Harry Potter and the Philosopher's Stone
+    </h2>
+    <div>
+      <div
+        className="year"
+      >
+        2001
+      </div>
+    </div>
+  </div>
+  <p>
+    7.5
+  </p>
+</div>
+`;

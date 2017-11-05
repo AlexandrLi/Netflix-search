@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search-page snapshot Take search-page snapshot 1`] = `
+<div>
+  <header>
+    <h1>
+      netflixroulette
+    </h1>
+    <form
+      onSubmit={[Function]}
+    >
+      <label
+        htmlFor="search"
+      >
+        find your movie
+      </label>
+      <input
+        id="search"
+        onChange={[Function]}
+        type="text"
+        value="lord of the rings"
+      />
+      <div
+        className="row"
+      >
+        <p>
+          order:
+        </p>
+        <div
+          className="button buttonSmall "
+          onClick={[Function]}
+        >
+          asc
+        </div>
+        <div
+          className="button buttonSmall selected"
+          onClick={[Function]}
+        >
+          desc
+        </div>
+        <button
+          className="button searchButton"
+        >
+          search
+        </button>
+      </div>
+    </form>
+  </header>
+  <div
+    className="toolbar"
+  >
+    <div
+      className="container"
+    >
+      <div>
+        3
+         movies found
+      </div>
+      <div
+        className="row"
+      >
+        Sort By
+        <div
+          className=""
+          onClick={[Function]}
+        >
+          release date
+        </div>
+        <div
+          className=""
+          onClick={[Function]}
+        >
+          rating
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+  >
+    <a
+      href="/film/122"
+      onClick={[Function]}
+    >
+      <div
+        className="card"
+      >
+        <img
+          alt="no image"
+          src="https://image.tmdb.org/t/p/w342/uexxR7Kw1qYbZk0RYaF9Rx5ykbj.jpg"
+        />
+        <div
+          className="row"
+        >
+          <h2>
+            The Lord of the Rings: The Return of the King
+          </h2>
+          <div>
+            <div
+              className="year"
+            >
+              2003
+            </div>
+          </div>
+        </div>
+        <p>
+          8.2
+        </p>
+      </div>
+    </a>
+    <a
+      href="/film/120"
+      onClick={[Function]}
+    >
+      <div
+        className="card"
+      >
+        <img
+          alt="no image"
+          src="https://image.tmdb.org/t/p/w342/bxVxZb5O9OxCO0oRUNdCnpy9NST.jpg"
+        />
+        <div
+          className="row"
+        >
+          <h2>
+            The Lord of the Rings: The Fellowship of the Ring
+          </h2>
+          <div>
+            <div
+              className="year"
+            >
+              2001
+            </div>
+          </div>
+        </div>
+        <p>
+          8.1
+        </p>
+      </div>
+    </a>
+    <a
+      href="/film/121"
+      onClick={[Function]}
+    >
+      <div
+        className="card"
+      >
+        <img
+          alt="no image"
+          src="https://image.tmdb.org/t/p/w342/wf3v0Pn09jnT5HSaYal7Ami3bdA.jpg"
+        />
+        <div
+          className="row"
+        >
+          <h2>
+            The Lord of the Rings: The Two Towers
+          </h2>
+          <div>
+            <div
+              className="year"
+            >
+              2002
+            </div>
+          </div>
+        </div>
+        <p>
+          8
+        </p>
+      </div>
+    </a>
+  </div>
+</div>
+`;

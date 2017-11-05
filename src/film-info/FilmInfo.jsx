@@ -6,7 +6,7 @@ import * as s from './film-info.css';
 import { FilmCard } from '../film-card/FilmCard';
 import { fetchMovie, clearMovies } from '../actions';
 
-class FilmInfo extends React.Component {
+export class FilmInfo extends React.Component {
 
   componentWillMount() {
     this.props.fetchMovie(this.props.match.params.id);
