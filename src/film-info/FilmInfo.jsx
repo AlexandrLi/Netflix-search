@@ -8,6 +8,7 @@ import { fetchMovie, clearMovies } from '../actions';
 
 export class FilmInfo extends React.Component {
 
+
   componentWillMount() {
     this.props.fetchMovie(this.props.match.params.id);
   }

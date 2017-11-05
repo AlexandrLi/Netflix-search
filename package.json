@@ -7,7 +7,8 @@
   "author": "Alexandr Li",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server -d",
+    "dev": "webpack -d",
+    "start": "yarn dev && babel-node ./src/server",
     "test": "jest",
     "coverage": "jest --coverage"
   },
@@ -16,15 +17,20 @@
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-router-config": "^1.0.0-beta.4",
+    "express": "^4.16.2",
+    "isomorphic-fetch": "^2.2.1",
     "redux": "^3.7.2",
     "redux-form": "^7.1.2",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
+    "babel-plugin-css-modules-transform": "1.2.7",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "enzyme": "^3.1.0",
@@ -33,6 +39,7 @@
     "eslint-plugin-jest": "^21.2.0",
     "eslint-plugin-react": "^7.4.0",
     "html-webpack-plugin": "^2.30.1",
+    "extract-text-webpack-plugin": "3.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^21.2.1",
     "react-addons-test-utils": "^15.6.2",
@@ -50,7 +57,7 @@
       "<rootDir>/shim.js",
       "<rootDir>/enzyme-setup.js"
     ],
-    "collectCoverageFrom": ["**/src/**/*.{js,jsx}", "!**/node_modules/**", "!**/vendor/**", "!**/src/reducers/index.js","!**/src/index.js"],
+    "collectCoverageFrom": ["**/src/**/*.{js,jsx}", "!**/node_modules/**", "!**/vendor/**", "!**/src/reducers/index.js", "!**/src/index.js"],
     "moduleNameMapper": {
       "^.+\\.css$": "identity-obj-proxy"
     }

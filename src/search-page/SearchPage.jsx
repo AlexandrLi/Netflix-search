@@ -34,7 +34,13 @@ export class SearchPage extends React.Component {
     this.props.sortMovies(type, this.state.order);
   }
 
-  componentWillMount() {
+  static fetchData(dispatch, match) {
+    if (match.params.query) {
+      dispatch(fetchMovies(match.params.query, 'desc'));
+    }
+  }
+
+  componentDidMount() {
     if (this.state.query) {
       this.props.fetchMovies(this.state.query, this.state.order);
     }

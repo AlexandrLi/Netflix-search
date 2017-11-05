@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -14,10 +15,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: [
           path.resolve(__dirname, 'node_modules'),
-        ],
-        query: {
-          presets: ['es2015', 'react']
-        }
+        ]
       },
       {
         test: /\.css$/,
@@ -28,18 +26,22 @@ module.exports = {
             options: {
               modules: true,
               camelCase: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
+              localIdentName: '[hash:8]'
             }
           }
         ]
       }
-    ]
+    ],
   },
   resolve: {
     extensions: ['.json', '.js', '.jsx', '.css']
   },
 
   plugins: [
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      allChunks: true
+    }),
     new HtmlWebpackPlugin({
       hash: true,
       template: './index.html'
