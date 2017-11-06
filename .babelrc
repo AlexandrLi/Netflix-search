@@ -1,13 +1,23 @@
 {
-  "presets": ["es2015", "react"],
-
-  "plugins": [
-    [
-      "css-modules-transform", {
-        "generateScopedName": "[hash:8]",
-        "extensions": [".css"]
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": [
+          "> 1%",
+          "last 2 versions"
+        ]
       }
-    ]
-  ]
-
+    }],
+    "stage-2",
+    "react"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        ["css-modules-transform", {
+          "generateScopedName": "[name]__[local]__[hash:base64:5]"
+        }]
+      ]
+    }
+  },
 }

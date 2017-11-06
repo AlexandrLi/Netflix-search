@@ -1,54 +1,52 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  entry: './index.js',
+  devtool: 'cheap-module-source-map',
+  entry: './src/index.js',
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    chunkFilename: '[id].js',
+    publicPath: ''
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.css']
   },
   module: {
     rules: [{
-        test: /.jsx?$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        exclude: [
-          path.resolve(__dirname, 'node_modules'),
-        ]
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [{
+            loader: "css-loader",
             options: {
               modules: true,
               camelCase: true,
-              localIdentName: '[hash:8]'
+              localIdentName: '[name]__[local]__[hash:base64:5]'
             }
-          }
-        ]
+          }]
+        })
       }
-    ],
+    ]
   },
-  resolve: {
-    extensions: ['.json', '.js', '.jsx', '.css']
-  },
-
   plugins: [
-    new ExtractTextPlugin({
-      filename: '[name].css',
-      allChunks: true
-    }),
     new HtmlWebpackPlugin({
-      hash: true,
-      template: './index.html'
+      template: __dirname + '/src/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    }),
+    new ExtractTextPlugin({
+      filename: "styles.css",
+      ignoreOrder: true
     })
-  ],
-
-  devServer: {
-    historyApiFallback: true
-  }
+  ]
 };

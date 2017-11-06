@@ -1,3 +1,4 @@
+require('css-modules-require-hook/preset');
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
