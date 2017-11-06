@@ -11,13 +11,9 @@
     "stage-2",
     "react"
   ],
-  "env": {
-    "production": {
-      "plugins": [
-        ["css-modules-transform", {
-          "generateScopedName": "[name]__[local]__[hash:base64:5]"
-        }]
-      ]
-    }
-  },
+  "plugins": [
+    ["css-modules-transform", {
+      "generateScopedName": "[name]__[local]__[hash:base64:5]"
+    }]
+  ]
 }
