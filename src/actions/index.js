@@ -48,7 +48,7 @@ export function fetchMovie(id) {
         dispatch(selectMovie(response));
         if (response.belongs_to_collection) {
           const id = response.belongs_to_collection.id;
-          fetch(`${COLLECTION_URL}/${id}?${API_KEY_PARAM}`)
+          return fetch(`${COLLECTION_URL}/${id}?${API_KEY_PARAM}`)
             .then(response => response.json())
             .then(response => dispatch(setMovies(response.parts)));
         } else {

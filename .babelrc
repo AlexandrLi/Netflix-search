@@ -13,6 +13,7 @@
   ],
   "plugins": [
     ["css-modules-transform", {
+      "camelCase": true,
       "generateScopedName": "[name]__[local]__[hash:base64:5]"
     }]
   ]
