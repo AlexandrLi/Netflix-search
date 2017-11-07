@@ -2,14 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as s from './film-info.css';
+import s from './film-info.css';
 import { FilmCard } from '../film-card/FilmCard';
 import { fetchMovie, clearMovies } from '../actions';
 
 export class FilmInfo extends React.Component {
 
+  static fetchData(dispatch, match) {
+    dispatch(fetchMovie(match.params.id));
+  }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchMovie(this.props.match.params.id);
   }
 

@@ -10,7 +10,7 @@ import configureStore from '../configureStore';
 import App from '../app/App';
 
 function handleRender(req, res) {
-  const store = configureStore();
+  const store = configureStore({});
 
   const branch = matchRoutes(routes, req.url);
   const promises = branch.map(({ route, match }) => {
@@ -59,6 +59,7 @@ function renderFullPage(html, preloadedState) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:600" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
   </head>
   
   <body>
