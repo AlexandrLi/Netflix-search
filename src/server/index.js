@@ -1,7 +1,7 @@
 import express from 'express';
 import handleRender from './handleRender';
 
-const port = 8080;
+const port = 8085;
 const server = express();
 
 server.use(express.static('dist'));
